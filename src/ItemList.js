@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from './Item';
 
 class ItemList extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class ItemList extends React.Component {
       <div> 
         <p className="items">Items</p>
         <ol className="item-list">
-          {this.props.items.map((item, index) => <li key={index}>{item}</li>)}
+          {this.props.items.map((item, index) => <Item item={item} index={index} />)}
         </ol>
       </div>
     )
