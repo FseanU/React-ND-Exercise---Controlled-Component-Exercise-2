@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import AddNewItem from './AddNewItem';
+import ItemList from './ItemList';
+import DeleteLastItem from './DeleteLastItem';
 import './App.css';
 
 class App extends React.Component {
@@ -30,20 +32,9 @@ class App extends React.Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Shopping List</h2>
-
         <AddNewItem value={this.state.value} setItemState={this.setItemState} />
-
-        <button 
-          onClick={this.deleteLastItem} 
-          disabled={this.noItemsFound()}
-        >
-          Delete Last Item
-        </button>
-
-        <p className="items">Items</p>
-        <ol className="item-list">
-          {this.state.items.map((item, index) => <li key={index}>{item}</li>)}
-        </ol>
+        <DeleteLastItem noItemsFound={this.noItemsFound} deleteLastItem={this.deleteLastItem} />
+        <ItemList items={this.state.items} /> 
       </div>
     );
   }
